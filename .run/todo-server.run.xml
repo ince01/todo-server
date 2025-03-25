@@ -1,6 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="todo-server" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.todo.todo_server.TodoServerApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="com.ince01.todo_server.TodoServerApplication" />
     <module name="todo-server.main" />
     <method v="2">
       <option name="Make" enabled="true" />

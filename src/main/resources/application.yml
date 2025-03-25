@@ -1,1 +1,11 @@
-spring.application.name=todo-server
+spring:
+  application:
+    name: todo-server
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
