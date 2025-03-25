@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="todo-server" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.todo.todo_server.TodoServerApplication" />
+    <module name="todo-server.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
