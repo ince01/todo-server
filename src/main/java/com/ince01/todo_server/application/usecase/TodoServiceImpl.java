@@ -25,9 +25,8 @@ public class TodoServiceImpl implements TodoService {
         User user = new User("anonymous");
         user.setId(userId);
         Todo todo = new Todo(title, description, user);
-        Todo savedTodo = todoRepositoryPort.save(todo);
 
-        return savedTodo;
+        return todoRepositoryPort.save(todo);
     }
 
     @Override

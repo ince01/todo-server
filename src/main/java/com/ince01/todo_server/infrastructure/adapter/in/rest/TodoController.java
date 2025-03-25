@@ -17,7 +17,6 @@ import java.util.List;
 @RequestMapping("/users/{userId}/todos")
 @RequiredArgsConstructor
 public class TodoController {
-    @Autowired
     private final TodoService todoService;
 
     @PostMapping
