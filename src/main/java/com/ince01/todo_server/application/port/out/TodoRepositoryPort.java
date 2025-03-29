@@ -7,11 +7,11 @@ import java.util.List;
 public interface TodoRepositoryPort {
     Todo save(Todo todo);
 
-    Todo findById(Long id);
+    Todo findById(Integer id);
 
-    List<Todo> findAllByUserId(Long userId);
+    List<Todo> findAllByUserId(Integer userId);
 
-    void deleteById(Long id);
+    void deleteById(Integer id);
 
-    boolean existsByUserIdAndTitle(Long userId, String title);
+    boolean existsByUserIdAndTitle(Integer userId, String title);
 }

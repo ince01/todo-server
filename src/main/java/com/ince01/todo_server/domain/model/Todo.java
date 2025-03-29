@@ -1,29 +1,30 @@
 package com.ince01.todo_server.domain.model;
 
 import lombok.*;
+import lombok.extern.java.Log;
 
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Todo {
-    private Long id;
+    private Integer id;
     private String title;
     private String description;
     private boolean completed;
-    private User user;
+    private Integer createdBy;
 
-    public Todo(String title, String description, User user) {
+    public Todo(String title, String description, Integer userId) {
         if (title == null || title.trim().isEmpty()) {
             throw new IllegalArgumentException("Title cannot be empty");
         }
-        if (user == null) {
+        if (userId == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
         this.title = title;
         this.description = description;
         this.completed = false;
-        this.user = user;
+        this.createdBy = userId;
     }
 
     public void markAsCompleted() {

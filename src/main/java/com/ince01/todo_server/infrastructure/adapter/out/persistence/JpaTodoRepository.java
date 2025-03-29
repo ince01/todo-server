@@ -23,22 +23,22 @@ public class JpaTodoRepository implements TodoRepositoryPort {
     }
 
     @Override
-    public Todo findById(Long id) {
+    public Todo findById(Integer id) {
         return springDataTodoRepository.findById(id).map(TodoMapper::toDomain).orElse(null);
     }
 
     @Override
-    public List<Todo> findAllByUserId(Long userId) {
+    public List<Todo> findAllByUserId(Integer userId) {
         return springDataTodoRepository.findByUserId(userId).stream().map(TodoMapper::toDomain).collect(Collectors.toList());
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(Integer id) {
         springDataTodoRepository.deleteById(id);
     }
 
     @Override
-    public boolean existsByUserIdAndTitle(Long userId, String title) {
+    public boolean existsByUserIdAndTitle(Integer userId, String title) {
         return springDataTodoRepository.existsByUserIdAndTitle(userId, title);
     }
 }

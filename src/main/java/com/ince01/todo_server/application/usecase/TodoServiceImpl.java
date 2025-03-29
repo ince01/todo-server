@@ -3,7 +3,6 @@ package com.ince01.todo_server.application.usecase;
 import com.ince01.todo_server.application.port.in.TodoService;
 import com.ince01.todo_server.application.port.out.TodoRepositoryPort;
 import com.ince01.todo_server.domain.model.Todo;
-import com.ince01.todo_server.domain.model.User;
 import com.ince01.todo_server.domain.exception.DuplicateTodoException;
 import com.ince01.todo_server.domain.exception.TodoNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -17,23 +16,21 @@ public class TodoServiceImpl implements TodoService {
     private final TodoRepositoryPort todoRepositoryPort;
 
     @Override
-    public Todo createTodo(Long userId, String title, String description) {
+    public Todo createTodo(Integer userId, String title, String description) {
         if (todoRepositoryPort.existsByUserIdAndTitle(userId, title)) {
             throw new DuplicateTodoException(title);
         }
 
-        User user = new User("anonymous");
-        user.setId(userId);
-        Todo todo = new Todo(title, description, user);
+        Todo todo = new Todo(title, description, userId);
 
         return todoRepositoryPort.save(todo);
     }
 
     @Override
-    public Todo getTodoById(Long userId, Long todoId) {
+    public Todo getTodoById(Integer userId, Integer todoId) {
         Todo todo = todoRepositoryPort.findById(todoId);
 
-        if (todo == null || !todo.getUser().getId().equals(userId)) {
+        if (todo == null || !todo.getCreatedBy().equals(userId)) {
             throw new TodoNotFoundException(todoId);
         }
 
@@ -41,12 +38,12 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public List<Todo> getAllTodos(Long userId) {
+    public List<Todo> getAllTodos(Integer userId) {
         return todoRepositoryPort.findAllByUserId(userId);
     }
 
     @Override
-    public Todo updateTodo(Long userId, Long todoId, String title, String description, boolean completed) {
+    public Todo updateTodo(Integer userId, Integer todoId, String title, String description, boolean completed) {
         Todo existingTodo = getTodoById(userId, todoId);
         if (!existingTodo.getTitle().equals(title) && todoRepositoryPort.existsByUserIdAndTitle(userId, title)) {
             throw new DuplicateTodoException(title);
@@ -62,7 +59,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void deleteTodo(Long userId, Long todoId) {
+    public void deleteTodo(Integer userId, Integer todoId) {
         Todo todo = getTodoById(userId, todoId);
         todoRepositoryPort.deleteById(todoId);
     }

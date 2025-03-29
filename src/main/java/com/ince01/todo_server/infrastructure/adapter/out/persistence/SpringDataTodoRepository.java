@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface SpringDataTodoRepository extends JpaRepository<TodoEntity, Long> {
-    List<TodoEntity> findByUserId(Long userId);
+public interface SpringDataTodoRepository extends JpaRepository<TodoEntity, Integer> {
+    List<TodoEntity> findByUserId(Integer userId);
 
-    boolean existsByUserIdAndTitle(Long userId, String title);
+    boolean existsByUserIdAndTitle(Integer userId, String title);
 }

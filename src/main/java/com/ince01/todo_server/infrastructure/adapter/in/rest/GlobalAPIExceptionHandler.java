@@ -1,4 +1,4 @@
-package com.shaolin.arsenalservice.presentation.exception;
+package com.ince01.todo_server.infrastructure.adapter.in.rest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;

@@ -10,23 +10,23 @@ import java.util.List;
 public class TodoResolver {
     private final TodoService todoService;
 
-    public Todo todo(Long userId, Long todoId) {
+    public Todo todo(Integer userId, Integer todoId) {
         return todoService.getTodoById(userId, todoId);
     }
 
-    public List<Todo> todos(Long userId) {
+    public List<Todo> todos(Integer userId) {
         return todoService.getAllTodos(userId);
     }
 
-    public Todo createTodo(Long userId, String title, String description) {
+    public Todo createTodo(Integer userId, String title, String description) {
         return todoService.createTodo(userId, title, description);
     }
 
-    public Todo updateTodo(Long userId, Long todoId, String title, String description, Boolean completed) {
+    public Todo updateTodo(Integer userId, Integer todoId, String title, String description, Boolean completed) {
         return todoService.updateTodo(userId, todoId, title, description, completed);
     }
 
-    public Boolean deleteTodo(Long userId, Long todoId) {
+    public Boolean deleteTodo(Integer userId, Integer todoId) {
         todoService.deleteTodo(userId, todoId);
         return true;
     }

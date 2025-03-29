@@ -14,8 +14,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TodoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(nullable = false)
     private String title;
@@ -27,6 +27,6 @@ public class TodoEntity {
     private boolean completed = false;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "created_by", nullable = false)
     private UserEntity user;
 }

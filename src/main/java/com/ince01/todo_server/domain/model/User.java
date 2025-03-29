@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class User {
-    private Long id;
+    private Integer id;
     private String username;
 
     public User(String username) {

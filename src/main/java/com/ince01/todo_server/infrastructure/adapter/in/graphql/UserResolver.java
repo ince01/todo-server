@@ -5,6 +5,6 @@ import com.ince01.todo_server.domain.model.User;
 
 public class UserResolver {
     public User user(Todo todo) {
-        return todo.getUser();
+        return new User("test");
     }
 }
